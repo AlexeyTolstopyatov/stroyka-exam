@@ -1,9 +1,16 @@
 -- Триггеры в базе данных необходимы 
 --      для реакции на DML инструкцию (INSERT, DELETE или UPDATE)
 -- Задача "On Insert - React" -> сообщить о вставке нового столбца в таблицу
-CREATE TRIGGER [OnUserInsertReact]
-    ON dbo.[users]
-    AFTER INSERT AS
+CREATE TRIGGER [OnUserInsertReact] -- Название
+    ON dbo.[users]                 -- На таблицу (пользователей)
+    AFTER INSERT AS                -- После Insert 
 BEGIN
     SELECT 'Добавлена новая запись в [users]'
 END
+
+-- От Begin до End тело функции.
+-- После каждой вставки нового столбца вместо сообщения от SQL Server
+-- в виде: "...Row affected: 3...",  будет выводиться таблица 1х1
+-- | Name                             |
+-- |==================================|
+-- | Добавлена новая запись в [users] |
