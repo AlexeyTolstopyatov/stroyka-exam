@@ -69,30 +69,18 @@ namespace strc.sqlserver
 
             using (SqlConnection c = new SqlConnection(Settings.Default.connection))
             using (SqlCommand command = new SqlCommand(query, c))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(command))
             {
                 try
                 {
                     await c.OpenAsync();
-
-                    SqlDataReader reader = await command.ExecuteReaderAsync();
-
-                    while (await reader.ReadAsync())
-                    {
-                        List<object> vals = new List<object>();
-                        DataColumn column = new DataColumn();
-                        
-                        
-
-                        table.Rows.Add();
-                        
-                    }
+                    adapter.Fill(table);
                 }
                 catch (Exception e)
                 {
                     await ErrorManager.ReportAsync(e);
                 }
             }
-
             return table;
         }
 
