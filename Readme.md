@@ -3,7 +3,7 @@
  - Диаграммы ER для базы данных ```/documents```
  - Руководство Администратора сети ```/documents```
  - База данных ```/db```
- - Клиентское ПО ```/client```
+ - Клиентское ПО ```/client``` (https://github.com/AlexeyTolstopyatov/stroyka-client-winforms)
 
 ## Entity Relationship Diagramm
 Разделяется на два типа представления данных:
